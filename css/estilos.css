@@ -1,0 +1,122 @@
+/*Cosas para iniciar proyecto*/
+/*Selectores globales*/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*1 rem = 10px*/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    
+}
+
+
+img {
+    max-width: 100%;
+}
+
+/*Utilidad*/
+.contenedor {
+    width: 95%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/*
+colores:
+Azul #133a59
+
+*/
+
+/*Botones*/
+
+.btn-claro {
+    background-color: #343434;
+    
+}
+
+.btn-oscuro {
+    background-color: #111111;
+}
+
+.btn-claro:hover, .btn-oscuro:hover {
+    background-color: #737373;
+}
+
+.btn-azul {
+    background-color: #345b7a;
+}
+
+.btn-azul:hover {
+    background-color: #2580ca;
+}
+
+/*Calculadora*/
+
+.calculadora {
+    max-width: 320px;
+    border: solid black 1px ;
+    background-color: #555555;
+    margin-top: 10px;
+}
+
+.encabezado {
+    padding: 0 5px;
+    color: white;
+    font-size: 12px;
+}
+
+.datos p {
+    width: 100%;
+    text-align: right;
+    background-color: #575757;
+    border: none;
+    color: white;
+    font-size: 5rem;
+    margin: 0;
+    padding: 0 5px;
+}
+
+.botones {
+    display: flx;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px 5px;
+}
+
+.botones .boton {
+    flex-basis: calc(25% - 3px);/*para que este funciones bien*/
+    background-color: yellow;
+    margin-top: 3px;
+    
+    
+}
+
+.boton button {
+    width: 100%;
+    padding: 15px 15px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    
+}
+
+.boton button:hover {
+    cursor: pointer;
+}
+
+.acumulador {
+    font-size: 3.2rem;
+    color: white;
+    padding: 0 3px;
+}
+
+.acumulador p {
+    margin: 0;
+}
