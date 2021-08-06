@@ -84,7 +84,7 @@ Azul #133a59
 }
 
 .botones {
-    display: flx;
+    display: flex; /*display flex*/ 
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 5px 5px;
