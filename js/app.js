@@ -1,17 +1,17 @@
 /* Creacion de botones */
 const pantalla = document.querySelector('.datos p');
-const botonesDigitos = document.querySelectorAll('.bnDigito');
-const btnBorrar = document.querySelector('.btnBorar');
+const botonesDigitos = document.querySelectorAll('.btnDigito');
+const btnBorrar = document.querySelector('.btnBorrar');
 const btnRetroceso = document.querySelector('.btnRetroceso');
 const btnPunto = document.querySelector('.btnPunto');
 const acumulador = document.querySelector('.acumulador p');
-const borrarantalla = document.querySelector('.btnBorrarPantalla');
+const borrarPantalla = document.querySelector('.btnBorrarPantalla');
 
 /*Botones de operaciones*/
 const btnSuma = document.querySelector('.btnSuma');
 const btnResta = document.querySelector('.btnResta');
 const btnMultiplicacion = document.querySelector('.btnMultiplicacion');
-
+const btnDivision = document.querySelector('.bntDivision');
 let primeraVez = false; /*Booleana*/
 
 /* Eventos */
@@ -31,68 +31,65 @@ btnBorrar.addEventListener('click',function() {
     primeraVez = false;
 })
 
-borrarPantalla.onclick = function(){
+borrarPantalla.addEventListener('click', function(){
     pantalla.textContent = 0;
-}
+}) 
 
 btnRetroceso.addEventListener('click', function() {
-    borrarNumero(valor);
+    borrarNumero();
 })
 
 btnPunto.addEventListener('click', function() {
-    registrarPunto();
+    registrarDigito('.');
 })
 
-btnSuma.onclick = function() {
+btnSuma.addEventListener('click',function (){
     sumar();
-}
+}) 
 
 btnResta.addEventListener('click', function() {
     restar();
 })
 
-btnMultiplicacionaddEventListener('click', function() {
+btnMultiplicacion.addEventListener('click', function() {
     multiplicar();
 })
 
+btnDivision.addEventListener('click', function(){
+    dividir();
+})
 
 
 /* Funciones */
 function registrarDigito(digito) { 
-    if (pantalla.textContent[0] == '0') {
-        pantalla.textContent = '';
-    }  
-    
-    pantalla.textContent = pantalla.textContent + digito;
-    
-    if (pantalla.textContent.length > 2) {
-        pantalla.textContent = 'error';
-    }
-}
-
-function registrarPunto() { 
-    var contadorPuntos = 0;
-
-    if (pantalla.textContent == 'errorr') {
-        alert('Tienes pantalla de error Presiona la tecla \'C\'')
-    } else {
+    if(digito == '.'){
+        let contadorPuntos = 0;
+  
         for (let i = 0; i < pantalla.textContent.length; i++) {
-            if (pantalla.textContent[i] == '.') {
-                contadorPuntos++;
-            }  
+          if (pantalla.textContent[i] == '.') {
+            contadorPuntos++;
+          }
+          
         }
-
-        if (contadorPuntos >= 1) {
-            pantalla.textContent = pantalla.textContent;
-        } else {
-            registrarDigito('.');
+  
+        if(contadorPuntos >=1){
+          pantalla.textContent = pantalla.textContent
+          }else{
+            pantalla.textContent = pantalla.textContent + digito;
+          }
+      }else{
+          if(pantalla.textContent[0] == '0'){
+            pantalla.textContent = '';
+          }
+        pantalla.textContent = pantalla.textContent + digito;
+      }
+        if(pantalla.textContent.length > 11){
+          pantalla.textContent = 'error';
         }
-        
-    }
 }
 
 function borrarNumero() {
-    if (pantalla.textContent == 'errror') {
+    if (pantalla.textContent == 'error') {
         alert('Tienes pantalla de error Presiona la tecla \'C\'');
     } else {
         pantalla.textContent = pantalla.textContent.slice(0, -1);
@@ -106,10 +103,10 @@ function borrarNumero() {
 
 function sumar() {
     let operando1 = Number(acumulador.textContent);
-    let operando = Number(pantalla.textContent);
+    let operando2 = Number(pantalla.textContent);
     let resultado;
 
-    if (primeraVez == false) {
+    if (acumulador.textContent == '0') {
         acumulador.textContent = pantalla.textContent;
         pantalla.textContent = 0;
         primeraVez = true;
@@ -123,7 +120,7 @@ function sumar() {
 function restar() {
     let operando1 = Number(acumulador.textContent);
     let operando2 = Number(pantalla.textContent);
-    /*let resultado;*/
+    let resultado;
 
     if (primeraVez == false) {
         acumulador.textContent = pantalla.textContent;
@@ -131,7 +128,7 @@ function restar() {
         primeraVez = true;
     } else {
         resultado = operando1 - operando2;
-        
+        pantalla.textContent = 0;
         acumulador.textContent = resultado;
     }
 }
@@ -145,10 +142,9 @@ function multiplicar() {
     if (primeraVez == false) {
         acumulador.textContent = pantalla.textContent;
         pantalla.textContent = 0;
-
         primeraVez = true;
     } else {
-        resultado = operando1 + operando2;
+        resultado = operando1 * operando2;
         pantalla.textContent = 0;
         acumulador.textContent = resultado;
     }
