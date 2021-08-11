@@ -16,7 +16,6 @@ body {
     
 }
 
-
 img {
     max-width: 100%;
 }
@@ -38,11 +37,12 @@ Azul #133a59
 
 .btn-claro {
     background-color: #343434;
-    
+    color: white;
 }
 
 .btn-oscuro {
     background-color: #111111;
+    color: white;
 }
 
 .btn-claro:hover, .btn-oscuro:hover {
@@ -50,6 +50,7 @@ Azul #133a59
 }
 
 .btn-azul {
+    color: white;
     background-color: #345b7a;
 }
 
@@ -60,61 +61,49 @@ Azul #133a59
 /*Calculadora*/
 
 .calculadora {
-    max-width: 320px;
+    max-width: 250px;
     border: solid black 1px ;
     background-color: #555555;
-    margin-top: 10px;
+    font-size: 15px;
 }
 
 .encabezado {
-    padding: 0 5px;
     color: white;
-    font-size: 12px;
 }
 
 .datos p {
-    width: 100%;
+    font-size: 50px;
     text-align: right;
-    background-color: #575757;
-    border: none;
+    margin: 10px 0;
     color: white;
-    font-size: 5rem;
-    margin: 0;
-    padding: 0 5px;
 }
 
 .botones {
-    display: flx;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 5px 5px;
+    
 }
 
 .botones .boton {
     flex-basis: calc(25% - 3px);/*para que este funciones bien*/
-    background-color: yellow;
-    margin-top: 3px;
-    
-    
+    margin-top: 5px;
 }
 
 .boton button {
     width: 100%;
-    padding: 15px 15px;
-    border: none;
-    color: white;
-    font-size: 16px;
-    
+    padding: 12px 15px;
 }
 
 .boton button:hover {
     cursor: pointer;
+    background-color: rgb(155, 155, 155);
 }
 
 .acumulador {
     font-size: 3.2rem;
     color: white;
-    padding: 0 3px;
+    margin: 0;
 }
 
 .acumulador p {
