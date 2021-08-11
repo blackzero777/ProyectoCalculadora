@@ -9,3 +9,5 @@ Los errores son comunmente que falta algún caracter o tal vez una línea de có
 por el archivo de JavaScript, si puedes encontrar más errores de igual manera te invito a que los corrijas y los incluyas en el pull request.
 
 Eso es todo por ahora, saludos.
+
+![imagen](https://user-images.githubusercontent.com/44215329/129108633-2648e306-f560-47e1-8f20-2f5dde1ddcce.png)
