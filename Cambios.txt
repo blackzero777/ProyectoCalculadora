@@ -1,0 +1,20 @@
+#CSS estilos
+linea 89  se corrigió el display: flex;#CSS estilos  
+
+#html
+linea 45 Faltaba comillas en la clase boton
+linea 82 Faltaba valor de este elemento (5)
+linea 121 Faltaba comilla al inicio de la clase
+linea 90 Clase btnesta debe ser btnResta
+linea 106 Clase btnesta debe ser btnSuma
+
+#JS
+linea 3 La clase es btnDIgito y no bnDigito
+La clase es btnBorrar y no btnBora
+linea 8 const escrita erronamente borrarantalla por borrarPantalla
+linea 54 Error al llamar la función addEventListener
+linea 68 Se cambio la condición de la función registrarDigito
+linea 76 pantalla.textContent == 'error' y no pantalla.textContent == 'errorr'
+linea 109 la variable debe ser operando2 y no solo operando
+linea 134 pantalla.textContent = 0;   //Se debe limpiar la pantalla para evitar la acumulación de numeros que se restan
+linea 151 la operación estsba como suma, se debe multiplicar

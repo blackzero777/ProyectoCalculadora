@@ -1,11 +1,11 @@
 /* Creacion de botones */
 const pantalla = document.querySelector('.datos p');
-const botonesDigitos = document.querySelectorAll('.bnDigito');
-const btnBorrar = document.querySelector('.btnBorar');
+const botonesDigitos = document.querySelectorAll('.btnDigito'); //La clase es btnDigito y no bnDigito
+const btnBorrar = document.querySelector('.btnBorrar'); //La clase es btnBorrar y no btnBora
 const btnRetroceso = document.querySelector('.btnRetroceso');
 const btnPunto = document.querySelector('.btnPunto');
 const acumulador = document.querySelector('.acumulador p');
-const borrarantalla = document.querySelector('.btnBorrarPantalla');
+const borrarPantalla = document.querySelector('.btnBorrarPantalla'); //const escrita erronamente borrarantalla por borrarPantalla
 
 /*Botones de operaciones*/
 const btnSuma = document.querySelector('.btnSuma');
@@ -51,7 +51,7 @@ btnResta.addEventListener('click', function() {
     restar();
 })
 
-btnMultiplicacionaddEventListener('click', function() {
+btnMultiplicacion.addEventListener('click', function() { //Error al llamar la función addEventListener
     multiplicar();
 })
 
@@ -65,7 +65,7 @@ function registrarDigito(digito) {
     
     pantalla.textContent = pantalla.textContent + digito;
     
-    if (pantalla.textContent.length > 2) {
+    if (pantalla.textContent.length > botonesDigitos.length) {  //Se cambio la condición de la función registrarDigito
         pantalla.textContent = 'error';
     }
 }
@@ -73,7 +73,7 @@ function registrarDigito(digito) {
 function registrarPunto() { 
     var contadorPuntos = 0;
 
-    if (pantalla.textContent == 'errorr') {
+    if (pantalla.textContent == 'error') { //pantalla.textContent == 'error' y no pantalla.textContent == 'errorr'
         alert('Tienes pantalla de error Presiona la tecla \'C\'')
     } else {
         for (let i = 0; i < pantalla.textContent.length; i++) {
@@ -106,7 +106,7 @@ function borrarNumero() {
 
 function sumar() {
     let operando1 = Number(acumulador.textContent);
-    let operando = Number(pantalla.textContent);
+    let operando2 = Number(pantalla.textContent); //la variable debe ser operando2 y no solo operando
     let resultado;
 
     if (primeraVez == false) {
@@ -131,7 +131,7 @@ function restar() {
         primeraVez = true;
     } else {
         resultado = operando1 - operando2;
-        
+        pantalla.textContent = 0;   //Se debe limpiar la pantalla para evitar la acumulación de numeros que se restan
         acumulador.textContent = resultado;
     }
 }
@@ -148,7 +148,7 @@ function multiplicar() {
 
         primeraVez = true;
     } else {
-        resultado = operando1 + operando2;
+        resultado = operando1 * operando2; //la operación estsba como suma, se debe multiplicar
         pantalla.textContent = 0;
         acumulador.textContent = resultado;
     }
